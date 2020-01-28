@@ -1,0 +1,98 @@
+Django : 웹프레임워크 프론트엔드에 백엔드 API를 만들 수 있음
+
+책, 팟캐스트, 영상
+장고로 인스타그램이 만들어짐
+'''
+def plus(a, b, *args, **kwargs):
+  print(args, kwargs)
+  #(6, 7, 5, 6, 2, 1) {'hello': True, 'hella': True, 'helly': True, 'hell_o': True, 'holle': True}
+  return(a + b)
+
+plus(1,5,6,7,5,6,2,1,hello=True,hella=True,helly=True,hell_o=True,holle=True, )
+
+#3.1_무한 +계산기
+def inf_com(*args):
+  result = 0
+  for number in args:
+    result += number
+  print(result)
+
+inf_com(1,2,124,5,2,23,12,5,46,23,56,1,1)
+
+#3.2_객체지향 프로그래밍
+class Car():
+  wheels = 4
+  doors = 4
+  windows = 4
+  seats = 4
+
+porche = Car()
+porche.color = "Red"
+print(porche) #=> <__main__.Car object at 0x7f81cc2449d0>
+print(porche.windows) #=> 4
+print(porche.color)# => red
+
+#3.3_커스터마이즈 할 수 있는 class를 만드는 방법
+class Car():
+  doorss = 4
+
+  def start(self):#메쏘드는 하나 이상의 스스로를 호출 할 인자값이 필요
+    print(self.color)
+    print("I started")
+porche = Car()
+porche.color = "RedBlack"
+porche.start()
+
+#3.4_class의 properties
+class Car():
+  def __init__(self, **kwargs):
+    print(kwargs)
+    self.wheels = 4
+    self.doors = 4
+    self.windows = 4
+    self.seats = 4
+    self.color = kwargs.get("color","Black")#kwargs.get을 통해 해당 값의 Default를 정하고 get할 수 있어짐 line57 참조
+    self.price = kwargs.get("price","$500")
+#print(Car)# =><class '__main__.Car'> 
+#print(dir(Car))#class의 모든 properties를 보여줌
+#Car의 Method를 override(재정의) 가능하다
+  def __str__(self):
+    return f"Car with {self.wheels} wheels"
+
+porche = Car(color="green", price="$400")
+print(porche.color, porche.price)
+
+venz = Car(doors=2)
+print(venz.doors, venz.color, venz.price)
+'''
+#3.5_classd의 확장(extend)
+#Car class를 통해 오픈카를 만들고 싶지만 mini의 경우 필요없는 method가 된다
+#이 경우 Car class를 확장 시킨 Con class를 만들어 줄 수 있다
+#마치 마트료시카 인형과 같이 무한하게 확장 가능
+class Car():
+  def __init__(self, **kwargs):
+    print(kwargs)
+    self.wheels = 4
+    self.doors = 4
+    self.windows = 4
+    self.seats = 4
+    self.color = kwargs.get("color","Black")
+    self.price = kwargs.get("price","$500")
+  def __str__(self):
+    return f"Car with {self.wheels} wheels"
+
+class Con(Car):
+  def take_off(self):
+    return "taking off"
+
+  def __init__(self, **kwargs):
+    super().__init__(**kwargs)#super함수를 통해 부모 class의 method 확장 가능 
+    #종종 method를 extend 할 일도 생긴다.
+    self.time = kwargs.get("time", 10)
+  
+  def __str__(self):
+    return f"Car with No roof"
+
+porche = Con(color="green", price="$400")
+print(porche.take_off())
+print(porche.time)
