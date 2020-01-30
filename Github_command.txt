@@ -1,4 +1,4 @@
-Push 전엔 Pull이 있다.
+﻿Push 전엔 Pull이 있다.
 
 #Pull
 1.git pull origin master #지정 해놓은 Repository에서 끌어온다
@@ -11,3 +11,17 @@ Push 전엔 Pull이 있다.
 4. git commit -m "massage" #git에 commit을 할 떄에 추가 할 코멘트를 달아줌
 
 5. git push origin master #실제로 git에 PUSH !
+
+
+
+#github 연동
+1. git bash 다운로드
+2. local Folder 우클릭 하여 git bash 실행
+3. git init 입력
+4. git remote add origin https://github.com/Choijonghun/jhchoi_gitTest         //내 리포지터리 주소
+5. git config --global user.email "ar5105440@gmail.com"		// 이메일 연결
+6. git config --global user.name "Choi jonghun"		// 내 이름
+
+
+
+출처: https://jaweb.tistory.com/entry/git-fatal-unable-to-auto-detect-email-관련-오류-해결방법 [잡다구리 파크]
