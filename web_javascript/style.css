@@ -8,3 +8,11 @@ h1{
 .clicked {
     color : rgb(133, 227, 207);
 }
+
+.form,
+.greeting {
+    display : none;
+}
+.showing{
+    display: block;
+}
