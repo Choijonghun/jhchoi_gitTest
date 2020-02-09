@@ -1,4 +1,4 @@
-jh.choi<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -7,22 +7,25 @@ jh.choi<!DOCTYPE html>
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1 id="title">Hi! jonghun</h1>
-    <div class="js-clock">
+    <div class="js-clock clock">
       <h1>00:00</h1>
     </div>
     <form class = "js-form form">
       <input type = "text" placeholder="What your name?"/>
     </form>
-    <h4 class = "js-greetings greetings"></h4>
-    <form class="js-toDoForm">
-      <input type = "text" placeholder="Write a to do "/>
+    <h1 class = "js-greetings greetings"></h1>
+    <form class="js-toDoForm toDoForm">
+      <input type = "text" placeholder="오늘의 할 일"/>
     </form>
-    <ul class="js-toDoList">
+    <ul class="js-toDoList toDoList">
       <il id="1"></il>
     </ul>
     <script src="clock.js"></script>
     <script src="greeting.js"></script>
     <script src="todo.js"></script>
+    <script src="bg.js"></script>
   </body>
+  <footer class = "footer">
+      &copy;Made by jonghun / Ver 1.0.0
+  </footer>
 </html>
