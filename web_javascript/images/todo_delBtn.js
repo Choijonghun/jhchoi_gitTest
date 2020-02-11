@@ -6,6 +6,16 @@ const TODOS_LS = "toDos";
 
 let toDos = [];
 
+function viewToDo(event){
+    let delBtn = document.querySelector("button");
+    if ( event === null){
+        delBtn.innerHTML = "Over";
+    } else{
+        delBtn.innerHTML = "삭제";
+
+    }
+}
+
 function deleteToDo(event){
     const btn = event.target;
     const li = btn.parentNode;
@@ -23,10 +33,10 @@ function saveToDos(){
 
 function paintToDo(text){
     const li = document.createElement("li");
-    const delBtn = document.createElement("button");
+    let delBtn = document.createElement("button");
     const span = document.createElement("span");
     const newId = toDos.length + 1;
-    delBtn.innerHTML = "😀";
+    li.addEventListener("mouseover", viewToDo);
     delBtn.addEventListener("click", deleteToDo);
     span.innerText = text;
     li.appendChild(span);
