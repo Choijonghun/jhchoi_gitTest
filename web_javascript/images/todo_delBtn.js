@@ -5,16 +5,14 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 const TODOS_LS = "toDos";
 
 let toDos = [];
-
+/*
 function viewToDo(event){
     let delBtn = document.querySelector("button");
-    if ( event === null){
+    const = il.querySelector
+    if ( event !== "mouseover"){
         delBtn.innerHTML = "Over";
-    } else{
-        delBtn.innerHTML = "삭제";
-
     }
-}
+}*/
 
 function deleteToDo(event){
     const btn = event.target;
@@ -36,7 +34,7 @@ function paintToDo(text){
     let delBtn = document.createElement("button");
     const span = document.createElement("span");
     const newId = toDos.length + 1;
-    li.addEventListener("mouseover", viewToDo);
+    //li.addEventListener("mouseover", viewToDo);
     delBtn.addEventListener("click", deleteToDo);
     span.innerText = text;
     li.appendChild(span);
@@ -45,7 +43,8 @@ function paintToDo(text){
     toDoList.appendChild(li);
     const toDoObj = {
         text : text,
-        id : newId
+        id : newId,
+        div: null
     };
     toDos.push(toDoObj);
     saveToDos();
