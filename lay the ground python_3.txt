@@ -1,98 +1,179 @@
-Django : ì›¹í”„ë ˆì„ì›Œí¬ í”„ë¡ íŠ¸ì—”ë“œì— ë°±ì—”ë“œ APIë¥¼ ë§Œë“¤ ìˆ˜ ìˆìŒ
+Á¦ 3Àå Á¦¾î¹®!
+: ÁıÀ» ÁöÀ» ¶§ ³ª¹«, µ¹, ½Ã¸àÆ® µî(ÀÚ·áÇü)Àº Àç·á°¡ µÇ°í, ÁıÀÇ »À´ë¸¦ ÀÌ·ç´Â Ã¶±ÙÀº Á¦¾î¹® ÀÌ´Ù.
+ÀÌ¹ø Àå¿¡¼­´Â ÀÚ·áÇüÀ» ¹ÙÅÁÀ¸·Î Á¦¾î¹®À» ÀÌ¿ëÇÏ¿© ÇÁ·Î±×·¥ÀÇ ±¸Á¶¸¦ ¸¸µé¾î º¸ÀÚ.
 
-ì±…, íŒŸìºìŠ¤íŠ¸, ì˜ìƒ
-ì¥ê³ ë¡œ ì¸ìŠ¤íƒ€ê·¸ë¨ì´ ë§Œë“¤ì–´ì§
-'''
-def plus(a, b, *args, **kwargs):
-  print(args, kwargs)
-  #(6, 7, 5, 6, 2, 1) {'hello': True, 'hella': True, 'helly': True, 'hell_o': True, 'holle': True}
-  return(a + b)
 
-plus(1,5,6,7,5,6,2,1,hello=True,hella=True,helly=True,hell_o=True,holle=True, )
+If¹®
+pythonÀº if¹®¿¡ ¼ÓÇÏ´Â ¸ğµç ¹®Àå¿¡ µé¿©¾²±â¸¦ ÀÌ¿ëÇÏ¿© Ç¥ÇöÇÔ
 
-#3.1_ë¬´í•œ +ê³„ì‚°ê¸°
-def inf_com(*args):
-  result = 0
-  for number in args:
-    result += number
-  print(result)
+¿¹Á¦)
 
-inf_com(1,2,124,5,2,23,12,5,46,23,56,1,1)
+if <Á¶°Ç¹®>ÀÌ ÂüÀÌ¸é:
+	¼öÇàÇÒ ¹®Àå1
+	¼öÇàÇÒ ¹®Àå2
+elif <Á¶°Ç¹®>ÀÌ ÂüÀÌ¸é  #ÀÌÀü Á¶°Ç¹®ÀÌ °ÅÁşÀÌ¸é elifÀÇ <Á¶°Ç¹®> ½ÇÇà
+	¼öÇàÇÒ ¹®Àå3
+	¼öÇàÇÒ ¹®Àå4
 
-#3.2_ê°ì²´ì§€í–¥ í”„ë¡œê·¸ë˜ë°
-class Car():
-  wheels = 4
-  doors = 4
-  windows = 4
-  seats = 4
+elif ...	# elif °³¼ö Á¦ÇÑ ¾øÀÌ »ç¿ë °¡´É
 
-porche = Car()
-porche.color = "Red"
-print(porche) #=> <__main__.Car object at 0x7f81cc2449d0>
-print(porche.windows) #=> 4
-print(porche.color)# => red
+else <Á¶°Ç¹®>ÀÌ ¸ğµÎ °ÅÁşÀÌ¸é:
+	¼öÇàÇÒ ¹®Àå5
+	¼öÇàÇÒ ¹®Àå6
 
-#3.3_ì»¤ìŠ¤í„°ë§ˆì´ì¦ˆ í•  ìˆ˜ ìˆëŠ” classë¥¼ ë§Œë“œëŠ” ë°©ë²•
-class Car():
-  doorss = 4
+Á¶°Ç¹®ÀÌ¶õ?
+: Âü°ú °ÅÁşÀ» ÆÇ´ÜÇÏ´Â ¹®Àå
+<, >, ==, !=, >=, <=  : ºÎµîÈ£ ÀÛ´Ù,Å©´Ù,°°´Ù,°°Áö¾Ê´Ù,Å©°Å³ª°°´Ù, ÀÛ°Å³ª°°´Ù
 
-  def start(self):#ë©”ì˜ë“œëŠ” í•˜ë‚˜ ì´ìƒì˜ ìŠ¤ìŠ¤ë¡œë¥¼ í˜¸ì¶œ í•  ì¸ìê°’ì´ í•„ìš”
-    print(self.color)
-    print("I started")
-porche = Car()
-porche.color = "RedBlack"
-porche.start()
+x or y  : x¿Í y µÑÁß¿¡ ÇÏ³ª¸¸ ÂüÀÌ¿©µµ ÂüÀÌ´Ù ( +, | )
+x and y : x¿Í y ¸ğµÎ ÂüÀÌ¿©¾ß ÂüÀÌ´Ù ( *, & )
+not x : x°¡ °ÅÁşÀÌ¸é ÂüÀÌ´Ù.
 
-#3.4_classì˜ properties
-class Car():
-  def __init__(self, **kwargs):
-    print(kwargs)
-    self.wheels = 4
-    self.doors = 4
-    self.windows = 4
-    self.seats = 4
-    self.color = kwargs.get("color","Black")#kwargs.getì„ í†µí•´ í•´ë‹¹ ê°’ì˜ Defaultë¥¼ ì •í•˜ê³  getí•  ìˆ˜ ìˆì–´ì§ line57 ì°¸ì¡°
-    self.price = kwargs.get("price","$500")
-#print(Car)# =><class '__main__.Car'> 
-#print(dir(Car))#classì˜ ëª¨ë“  propertiesë¥¼ ë³´ì—¬ì¤Œ
-#Carì˜ Methodë¥¼ override(ì¬ì •ì˜) ê°€ëŠ¥í•˜ë‹¤
-  def __str__(self):
-    return f"Car with {self.wheels} wheels"
+x in s : s¶ó´Â ¸®½ºÆ®(orÆ©ÇÃor¹®ÀÚ¿­) ¾È¿¡ x°¡ µé¾îÀÖ¾î¸é Âü
+x not in s : s¶ó´Â ¸®½ºÆ®(orÆ©ÇÃor¹®ÀÚ¿­) ¾È¿¡ x°¡ µé¾îÀÖ¾î¸é °ÅÁş
 
-porche = Car(color="green", price="$400")
-print(porche.color, porche.price)
+# °¡²û Á¶°Ç¸ÕÀÇ Âü, °ÅÁş¿¡ µû¶ó Çàµ¿À» Á¤ÀÇÇÒ¶§ ¾Æ¹«°Íµµ ÇÏÁö ¾Êµµ·Ï ¼³Á¤ÇÏ°í ½ÍÀ¸¸é pass¸¦ Àû¿ë
 
-venz = Car(doors=2)
-print(venz.doors, venz.color, venz.price)
-'''
-#3.5_classdì˜ í™•ì¥(extend)
-#Car classë¥¼ í†µí•´ ì˜¤í”ˆì¹´ë¥¼ ë§Œë“¤ê³  ì‹¶ì§€ë§Œ miniì˜ ê²½ìš° í•„ìš”ì—†ëŠ” methodê°€ ëœë‹¤
-#ì´ ê²½ìš° Car classë¥¼ í™•ì¥ ì‹œí‚¨ Con classë¥¼ ë§Œë“¤ì–´ ì¤„ ìˆ˜ ìˆë‹¤
-#ë§ˆì¹˜ ë§ˆíŠ¸ë£Œì‹œì¹´ ì¸í˜•ê³¼ ê°™ì´ ë¬´í•œí•˜ê²Œ í™•ì¥ ê°€ëŠ¥
-class Car():
-  def __init__(self, **kwargs):
-    print(kwargs)
-    self.wheels = 4
-    self.doors = 4
-    self.windows = 4
-    self.seats = 4
-    self.color = kwargs.get("color","Black")
-    self.price = kwargs.get("price","$500")
-  def __str__(self):
-    return f"Car with {self.wheels} wheels"
 
-class Con(Car):
-  def take_off(self):
-    return "taking off"
+Á¶°ÇºÎ Ç¥Çö½Ä
 
-  def __init__(self, **kwargs):
-    super().__init__(**kwargs)#superí•¨ìˆ˜ë¥¼ í†µí•´ ë¶€ëª¨ classì˜ method í™•ì¥ ê°€ëŠ¥ 
-    #ì¢…ì¢… methodë¥¼ extend í•  ì¼ë„ ìƒê¸´ë‹¤.
-    self.time = kwargs.get("time", 10)
-  
-  def __str__(self):
-    return f"Car with No roof"
+if score >= 60:
+    message = "success"
+else:
+    message = "failure"
 
-porche = Con(color="green", price="$400")
-print(porche.take_off())
-print(porche.time)
+°£·«È­
+
+messag = "success" if score >= 60 else "failure"  #Áß¿ä! ÇÏÀÌ¶óÀÌÆ®! Á¶°ÇºÎ Ç¥Çö½ÄÀº °¡µ¶¼º¿¡ À¯¸®ÇÏ°í È°¿ë¼ºÀÌ ÁÁÀ½
+
+
+
+
+While¹® #¹İº¹¹®
+¿¹Á¦·Î ³»¿ë ´ëÃ¼
+
+coffee = 10
+while True:
+    money = int(input("µ·À» ³Ö¾î ÁÖ¼¼¿ä: "))
+    if money == 300:
+        print("Ä¿ÇÇ¸¦ Áİ´Ï´Ù.")
+        coffee = coffee -1
+    elif money > 300:
+        print("°Å½º¸§µ· %d¸¦ ÁÖ°í Ä¿ÇÇ¸¦ Áİ´Ï´Ù." % (money -300))
+        coffee = coffee -1
+    else:
+        print("µ·À» ´Ù½Ã µ¹·ÁÁÖ°í Ä¿ÇÇ¸¦ ÁÖÁö ¾Ê½À´Ï´Ù.")
+        print("³²Àº Ä¿ÇÇÀÇ ¾çÀº %d°³ ÀÔ´Ï´Ù." % coffee)
+    if coffee == 0:
+        print("Ä¿ÇÇ°¡ ´Ù ¶³¾îÁ³½À´Ï´Ù. ÆÇ¸Å¸¦ ÁßÁö ÇÕ´Ï´Ù.")
+        break  #while¹® ÁßÁö
+
+
+while¹®ÀÇ ¸ÇÃ³À½À¸·Î µ¹¾Æ°¡±â
+continue¹®À» ÀÌ¿ë (¿¹Á¦·Î ³»¿ë ´ëÃ¼)
+
+a = 0
+while a < 10:
+   a = a + 1
+   if a % 2 == 0: continue  #continue¹®Àº while¹®ÀÇ ¸Ç Ã³À½À¸·Î µ¹¾Æ°¡°Ô ÇÏ´Â ¸í·É¾îÀÌ´Ù.
+   print(a)
+
+¹«ÇÑ·çÇÁ
+>>> while True:
+...     print("Ctrl+C¸¦ ´­·¯¾ß while¹®À» ºüÁ®³ª°¥ ¼ö ÀÖ½À´Ï´Ù.")
+...
+Ctrl+C¸¦ ´­·¯¾ß while¹®À» ºüÁ®³ª°¥ ¼ö ÀÖ½À´Ï´Ù.
+Ctrl+C¸¦ ´­·¯¾ß while¹®À» ºüÁ®³ª°¥ ¼ö ÀÖ½À´Ï´Ù.
+...
+...
+
+
+for¹®
+
+for¹®ÀÇ ±âº» ±¸Á¶
+
+test_list = ['one', 'two', 'three']
+for i in test_list:
+   print(i)
+
+>>> one
+>>> two
+>>> three
+
+for¹® ¿¹Á¦
+#marks1.py
+marks = [90, 25, 67, 45, 80]
+
+number = 0 
+for mark in marks:   # Á¡¼ö ¸®½ºÆ® marks¿¡¼­ Â÷·Ê·Î Á¡¼ö¸¦ ²¨³»¾î mark¶ó´Â º¯¼ö¿¡ ´ëÀÔÇÏ°í for¹® ¾ÈÀÇ ¹®ÀåµéÀ» ¼öÇà
+    number = number +1 
+    if mark >= 60: 
+        print(f"{number}¹ø ÇĞ»ıÀº ÇÕ°İÀÔ´Ï´Ù.")
+    else: 
+        print(f"{number}¹ø ÇĞ»ıÀº ÇÕ°İÀÔ´Ï´Ù.")
+
+½ÇÇàÇØ º¸ÀÚ.
+C:\doit>python marks1.py
+1¹ø ÇĞ»ıÀº ÇÕ°İÀÔ´Ï´Ù.
+2¹ø ÇĞ»ıÀº ºÒÇÕ°İÀÔ´Ï´Ù.
+3¹ø ÇĞ»ıÀº ÇÕ°İÀÔ´Ï´Ù.
+4¹ø ÇĞ»ıÀº ºÒÇÕ°İÀÔ´Ï´Ù.
+5¹ø ÇĞ»ıÀº ÇÕ°İÀÔ´Ï´Ù.
+
+
+# for¹®¿¡¼­µµ continue¹® »ç¿ë °¡´ÉÇÏ´Ù.
+
+for¹®°ú ÇÔ²² ÀÚÁÖ »ç¿ëÇÏ´Â rangeÇÔ¼ö
+
+a = range(1,11)  #1ºÎÅÍ 11¹Ì¸¸ÀÇ ¼ıÀÚ¸¦ Æ÷ÇÔÇÏ´Â range°´Ã¼¸¦ ¸¸µé¾î ÁÜ
+
+¿¹Á¦
+#marks3.py
+marks = [90, 25, 67, 45, 80]
+for number in range(len(marks)):  #len ÇÔ¼ö´Â ¸®½ºÆ® ¾ÈÀÇ ¿ä¼Ò °³¼ö¸¦ ¹İÈ¯ÇÔ Áï, len(marks) ´Â 5°¡ µÊ
+    if marks[number] < 60: 
+        continue		      #continue¹® ¼öÇà
+    print("%d¹ø ÇĞ»ı ÃàÇÏÇÕ´Ï´Ù. ÇÕ°İÀÔ´Ï´Ù." % (number+1))
+
+½ÇÇàÇØ º¸ÀÚ.
+C:\doit>python marks3.py
+1¹ø ÇĞ»ı ÃàÇÏÇÕ´Ï´Ù. ÇÕ°İÀÔ´Ï´Ù.
+3¹ø ÇĞ»ı ÃàÇÏÇÕ´Ï´Ù. ÇÕ°İÀÔ´Ï´Ù.
+5¹ø ÇĞ»ı ÃàÇÏÇÕ´Ï´Ù. ÇÕ°İÀÔ´Ï´Ù.
+
+
+¸®½ºÆ® ³»Æ÷ »ç¿ëÇÏ±â
+: ¸®½ºÆ® ¾È¿¡ for¹®À» Æ÷ÇÔÇÏ´Â ¸®½ºÆ® ³»Æ÷(List comprehension)¸¦ »ç¿ëÇÏ¸é Á» ´õ Æí¸®ÇÏ°í Á÷°üÀûÀÎ ÇÁ·Î±×·¥¹Ö °¡´É
+
+a = [1, 2, 3, 4]
+result = []
+for num in a:
+   result.append(num*3)
+print(result)
+>>> [3, 6 ,9 ,12]
+
+ ¸®½ºÆ® ³»Æ÷...
+
+a = [1, 2, 3, 4]
+result = [num *3 for num in a]
+print(result)
+>>> [3, 6, 9, 12]
+
+
+¸®½ºÆ® ³»Æ÷¸¦ ÀÌ¿ëÇÑ ±¸±¸´Ü ¸¸µé±â
+result = [ x*y for x in range(2,10)
+	     for y in range(1,10)]
+print(result)
+>>>
+[2, 4, 6, 8, 10, 12, 14, 16, 18, 3, 6, 9, 12, 15, 18, 21, 24, 27, 4, 8, 12, 16,
+20, 24, 28, 32, 36, 5, 10, 15, 20, 25, 30, 35, 40, 45, 6, 12, 18, 24, 30, 36, 42
+, 48, 54, 7, 14, 21, 28, 35, 42, 49, 56, 63, 8, 16, 24, 32, 40, 48, 56, 64, 72,
+9, 18, 27, 36, 45, 54, 63, 72, 81]
+
+
+
+¸®½ºÆ®³»Æ÷ + Á¶°Ç¹®
+a = [1,2,3,4]
+result = [num * 3 for num in a if num % 2 == 0]  #numÀ» 2·Î³ª´©¾î¼­ 0ÀÌ¸é a[num]*3ÇÏ¿© result¿¡ ¹İÈ¯
+print(result)
+>>> [6, 12]
